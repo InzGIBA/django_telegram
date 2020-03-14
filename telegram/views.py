@@ -12,12 +12,41 @@ from django.utils.decorators import method_decorator
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 from django.views.generic.edit import CreateView
+# API
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Create your views here.
 
 from .forms import CustomRegisterForm, CustomAuthForm, CustomMessageForm
 from .models import Message
+from .serializers import MessageSerializer
 from .bots import send_message
+
+
+class MessageView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        message = Message.objects.filter(user=user)
+        serializer = MessageSerializer(message, many=True)
+        return Response({"message": serializer.data})
+
+    def post(self, request):
+        message = request.data.get('message')
+        serializer = MessageSerializer(data=message)
+        if serializer.is_valid(raise_exception=True):
+            message_saved = serializer.save(user=request.user)
+            try:
+                send_message(message_saved.user.telegram_id, f'{message_saved.user}, я получил от тебя сообщение:\n{message_saved.body}')
+            except  Exception as e:
+                print(e)
+            else:
+                message_saved.status = True
+                message_saved.save()
+        return Response({"success": "Message '{}' created successfully".format(message_saved.body)})
 
 
 class MessageCreateView(CreateView):

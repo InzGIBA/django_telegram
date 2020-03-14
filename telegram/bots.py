@@ -27,8 +27,8 @@ class BotView(View):
         return HttpResponse('post')
 
 
-API_TOKEN = ''
-WEBHOOK_HOST = ''
+API_TOKEN = '1098645129:AAHysl9Eq2SHm6Hrj_oAX2ZGuyXcsNmtZyg'
+WEBHOOK_HOST = 'f272d747.ngrok.io'
 WEBHOOK_PORT = 443
 WEBHOOK_SSL_CERT = os.path.join(settings.BASE_DIR, 'webhook_cert.pem')
 WEBHOOK_SSL_PRIV = os.path.join(settings.BASE_DIR, 'webhook_pkey.pem')

@@ -5,10 +5,12 @@ description = ""
 authors = ["InzGIBA <a.baktubayev@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8, <3.9"
 django = "^3.0.4"
 pyjwt = "^1.7.1"
 pyTelegramBotAPI = "^3.6.7"
+djangorestframework = "^3.11.0"
+djangorestframework-simplejwt = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 
