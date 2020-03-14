@@ -3,5 +3,13 @@
 {% block 'title' %}Авторизация{% endblock 'title' %}
 
 {% block 'main' %}
-    {% include 'includes/auth_form.html' with sumbit="Авторизироваться" %}
+    <div class="hero hero-sm bg-dark">
+        <div class="container grid-xl">
+            <div class="hero-body">
+                <h1>Авторизация</h1>
+                <p>Пожалуйста, введите логин и пароль</p>
+            </div>
+        </div>
+    </div>
+    {% include 'includes/auth_form.html' with sumbit="Отправить" %}
 {% endblock 'main' %}

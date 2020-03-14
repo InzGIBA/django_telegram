@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Главная страница{% endblock 'title' %}
+
+{% block 'main' %}
+<div class="hero hero-sm bg-dark">
+    <div class="container grid-xl">
+        <div class="hero-body">
+            <h1>Главная страница</h1>
+        </div>
+    </div>
+</div>
+<div class="empty">
+    <div class="empty-icon">
+        <i class="icon icon-3x icon-mail"></i>
+    </div>
+    {% if object_list %}
+    <p class="empty-title h5">Ваши сообщения</p>
+        <table class="messages">
+            <thead>
+                <tr>
+                    <td>Дата создания</td>
+                    <td>Сообщение</td>
+                    <td>Статус</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in object_list %}
+                <tr>
+                    <td>{{ message.created }}</td>
+                    <td>{{ message.body }}</td>
+                    <td>{{ message.status|yesno:"Отправлено,Не отправлено" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p class="empty-title h5">У вас отсутствуют сообщения</p>
+    {% endif %}
+    <br>
+    <p class="empty-subtitle">Нажмите на кнопку, чтобы начать разговор</p>
+    <div class="empty-action">
+        <a href="{% url 'message.create' %}" class="btn btn-primary">Отправить сообщение</a>
+    </div>    
+</div>
+
+{% endblock 'main' %}

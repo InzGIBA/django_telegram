@@ -3,5 +3,13 @@
 {% block 'title' %}Регистрация{% endblock 'title' %}
 
 {% block 'main' %}
-    {% include 'includes/auth_form.html' with sumbit="Зарегистрироваться" %}
+    <div class="hero hero-sm bg-dark">
+        <div class="container grid-xl">
+            <div class="hero-body">
+                <h1>Регистрация</h1>
+                <p>Пожалуйста, введите логин, имя, фамилию и пароль</p>
+            </div>
+        </div>
+    </div>
+    {% include 'includes/auth_form.html' with sumbit="Отправить" %}
 {% endblock 'main' %}

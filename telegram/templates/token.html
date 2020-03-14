@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Главная страница{% endblock 'title' %}
+
+{% block 'main' %}
+<div class="hero hero-sm bg-dark">
+    <div class="container grid-xl">
+        <div class="hero-body">
+            <h1>Ключ доступа</h1>
+        </div>
+    </div>
+</div>
+<div class="empty">
+    <div class="empty-icon">
+        <i class="icon icon-3x icon-link"></i>
+    </div>
+    {% if user.is_authenticated %}
+    <p class="empty-title h5">Ваш токен для Telegram бота</p>
+    <kbd>{{ user.token }}</kbd>
+    {% else %}
+    <p class="empty-title h5">Чтобы получить ключ, необходимо пройти авторизоваться</p>
+    {% endif %}
+</div>
+
+{% endblock 'main' %}

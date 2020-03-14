@@ -11,6 +11,43 @@
         .navbar {
             margin: 16px 0px;
         }
+        .auth_form {
+            display: flex;
+            flex-flow: column;
+            margin-top: 16px;
+        }
+        .auth_form button {
+            margin-left: auto;
+            margin-top: 16px;
+        }
+        .messages {
+            margin: 0px auto;
+            width: 980px;
+            padding: 0;
+            border-collapse: collapse;
+        }
+        .messages td {
+            padding: 4px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+        .messages td:first-child {
+            border-left: none;
+            width: 200px;
+        }
+        .messages td:last-child {
+            border-right: none;
+            width: 200px;
+        }
+        .messages tr:last-child td {
+            border-bottom: none;
+        }
+        .messages thead td {
+            font-weight: bold;
+            border-top: none;
+        }
+        .messages td:nth-child(2) {
+            width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -24,6 +61,8 @@
                 <a href="{% url 'account.register' %}" class="navbar-brand mr-2">Регистрация</a>
                 <a href="{% url 'account.login' %}" class="navbar-brand mr-2">Авторизация</a>
                 {% else %}
+                <a href="{% url 'message.list' %}" class="navbar-brand mr-2">Сообщения</a>
+                <a href="{% url 'account.token' %}" class="navbar-brand mr-2">Ключ доступа</a>
                 <a href="{% url 'account.logout' %}" class="navbar-brand mr-2">Выйти</a>
                 {% endif %}
             </section>

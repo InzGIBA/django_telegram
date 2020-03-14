@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Главная страница{% endblock 'title' %}
+
+{% block 'main' %}
+<div class="hero hero-sm bg-dark">
+    <div class="container grid-xl">
+        <div class="hero-body">
+            <h1>Главная страница</h1>
+        </div>
+    </div>
+</div>
+{% include 'includes/message_form.html' %}
+{% endblock 'main' %}

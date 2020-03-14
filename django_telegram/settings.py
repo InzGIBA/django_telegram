@@ -25,7 +25,7 @@ SECRET_KEY = 'xu5%c@jz^g3#*ai%c0okigg25dch9rr)kbr=+b&!f$y0rdv^7%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -121,3 +121,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'telegram.PersonalUser'

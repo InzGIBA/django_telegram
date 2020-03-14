@@ -7,6 +7,8 @@ authors = ["InzGIBA <a.baktubayev@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 django = "^3.0.4"
+pyjwt = "^1.7.1"
+pyTelegramBotAPI = "^3.6.7"
 
 [tool.poetry.dev-dependencies]
 
